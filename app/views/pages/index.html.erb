@@ -1,2 +1,6 @@
 <h1>123</h1>
-<%= [1,2,3,4,5].sample %>
+<% if user_signed_in? %>
+  已登入 <a href="/sign_out">登出</a>
+<% else %>
+  未登入 <a href="/sign_in">登入</a>
+<% end %>
