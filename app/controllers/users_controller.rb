@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to "/"
     else
-      # redirect_to "/sign_up"
       render :sign_up
     end
   end

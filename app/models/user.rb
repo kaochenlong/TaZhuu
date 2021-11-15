@@ -1,3 +1,13 @@
+require "digest"
+
 class User < ApplicationRecord
-  validates :username, presence: true
+  validates :email, :username, presence: true
+
+  before_save :encrypt_password
+
+  private
+  def encrypt_password
+    salted_password = "xy#{self.password.reverse}hellohey"
+    self.password = Digest::SHA1.hexdigest(salted_password)
+  end
 end
