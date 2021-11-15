@@ -3,7 +3,7 @@ require "digest"
 class User < ApplicationRecord
   validates :email, :username, presence: true
 
-  before_save :encrypt_password
+  before_create :encrypt_password
 
   private
   def encrypt_password
