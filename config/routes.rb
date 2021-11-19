@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :courses
+
   root "pages#index"
 
   get "/about", to: "pages#about"

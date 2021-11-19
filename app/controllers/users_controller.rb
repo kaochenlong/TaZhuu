@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def account_verify
-    clean_params = params.require(:user).permit(:username, :password, :email)
-
-    @user = User.new(clean_params)
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to "/"
@@ -27,5 +25,10 @@ class UsersController < ApplicationController
     else
       render html: "no user"
     end
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
   end
 end
