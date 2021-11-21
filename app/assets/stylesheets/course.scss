@@ -1,0 +1,16 @@
+section.course {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .card {
+    padding: 8px 12px;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    margin: 4px;
+
+    header {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
