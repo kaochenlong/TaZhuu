@@ -14,6 +14,3 @@ Rails.application.routes.draw do
 
   delete "/sign_out", to: "users#sign_out"
 end
-
-# email
-# password
