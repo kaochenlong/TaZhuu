@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:edit, :update, :destroy]
+
   def index
     @courses = Course.all
   end
@@ -18,12 +20,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
   end
 
   def update
-    @course = Course.find(params[:id])
-
     if @course.update(course_params)
       redirect_to courses_path
     else
@@ -32,12 +31,15 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path
   end
 
   private
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
   def course_params
     params.require(:course).permit(:name, :price, :intro, :hour)
   end
