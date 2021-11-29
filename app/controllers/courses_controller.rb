@@ -1,9 +1,14 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:edit, :update, :destroy]
-  before_action :login?, except: [:index, :show]
+  before_action :authenticate!, except: [:index, :show]
 
   def index
     @courses = Course.all
+  end
+
+  def show
+    @course = Course.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -39,11 +44,6 @@ class CoursesController < ApplicationController
   private
   def set_course
     @course = current_user.courses.find(params[:id])
-  end
-
-  def login?
-    # 如果沒登入，轉去登入頁面
-    redirect_to sign_in_path, notice: '請先登入會員' unless user_signed_in?
   end
 
   def course_params

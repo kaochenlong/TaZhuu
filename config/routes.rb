@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :courses
+  resources :courses do
+    # resources :reviews, shallow: true
+    resources :reviews, only: [:create]
+  end
+  resources :reviews, only: [:destroy]
 
   root "courses#index"
 
