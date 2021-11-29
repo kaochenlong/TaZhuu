@@ -4,10 +4,10 @@ class ReviewsController < ApplicationController
   def create
     course = Course.find(params[:course_id])
 
-    review = course.reviews.build(review_params)
+    @review = course.reviews.build(review_params)
 
-    if review.save
-      redirect_to course_path(course), notice: '完成評價'
+    if @review.save
+      # redirect_to course_path(course), notice: '完成評價'
     else
       # ....
     end
