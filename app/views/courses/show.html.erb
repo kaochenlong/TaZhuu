@@ -1,4 +1,8 @@
-<h1><%= @course.name %></h1>
+<%# 按下 like，會印出 hello %>
+<h1>
+  <%= @course.name %>
+  <button id="like-btn">Like!</button>
+</h1>
 
 <%= form_for(@review, url: course_reviews_path(@course), remote: true) do |form| %>
 
