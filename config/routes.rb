@@ -1,4 +1,17 @@
+# rails g controller api/v1/courses
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :courses, only: [] do
+        member do
+          # /api/v1/courses/2/like
+          post :like
+        end
+      end
+    end
+  end
+
+  # /courese
   resources :courses do
     # resources :reviews, shallow: true
     resources :reviews, only: [:create]
