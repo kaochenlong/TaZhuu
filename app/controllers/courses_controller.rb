@@ -12,6 +12,10 @@ class CoursesController < ApplicationController
     @reviews = @course.reviews.order(id: :desc)
   end
 
+  def buy
+    @order = Order.new
+  end
+
   def new
     @course = Course.new
   end

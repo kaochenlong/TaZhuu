@@ -11,8 +11,16 @@ Rails.application.routes.draw do
     end
   end
 
+  # /orders
+  resources :orders, only: [:index, :create] do
+
+  end
+
   # /courese
   resources :courses do
+    member do
+      get :buy
+    end
     # resources :reviews, shallow: true
     resources :reviews, only: [:create]
   end

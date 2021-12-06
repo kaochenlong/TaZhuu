@@ -1,0 +1,13 @@
+<h1>購買課程</h1>
+
+<%= form_for(@order) do |form| %>
+  <div class="fields">
+    <%= form.label :recipient %>
+    <%= form.text_field :recipient %>
+  </div>
+  <div class="fields">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+  <%= form.submit %>
+<% end %>

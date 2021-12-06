@@ -10,6 +10,8 @@
     </button>
 </h1>
 
+<%= link_to "購買課程", buy_course_path(@course) %>
+
 <%= form_for(@review, url: course_reviews_path(@course), remote: true) do |form| %>
 
 <div class="fields">
