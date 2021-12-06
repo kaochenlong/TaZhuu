@@ -11,11 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # /orders
-  resources :orders, only: [:index, :create] do
-
-  end
-
   # /courese
   resources :courses do
     member do
@@ -23,6 +18,7 @@ Rails.application.routes.draw do
     end
     # resources :reviews, shallow: true
     resources :reviews, only: [:create]
+    resources :orders, only: [:create]  # POST /courses/2/orders
   end
   resources :reviews, only: [:destroy]
 

@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
   end
 
   def buy
+    @course = Course.find(params[:id])
     @order = Order.new
   end
 
