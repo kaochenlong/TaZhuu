@@ -34,6 +34,7 @@ gem "figaro", "~> 1.2"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'foreman', '~> 0.87.2'
+  gem 'faker', '~> 2.19'
 end
 
 group :development do
