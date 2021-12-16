@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :authenticate!, except: [:index, :show]
 
   def index
-    @courses = Course.includes(:user)
+    @courses = Course.includes(:user).page(params[:page]).per(6)
   end
 
   def show

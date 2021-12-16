@@ -2,6 +2,8 @@
 
 <%= link_to "新增課程", new_course_path %>
 
+<%= paginate @courses %>
+
 <section class="course">
 <% @courses.each do |course| %>
   <div class="card">
