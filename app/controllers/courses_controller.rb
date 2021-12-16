@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :authenticate!, except: [:index, :show]
 
   def index
-    @courses = Course.all
+    @courses = Course.includes(:user)
   end
 
   def show

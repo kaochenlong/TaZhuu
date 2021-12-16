@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review = course.reviews.build(review_params)
 
     if @review.save
-      # redirect_to course_path(course), notice: '完成評價'
+      redirect_to course_path(course), notice: '完成評價'
     else
       # ....
     end
